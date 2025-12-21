@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36717.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseTracker.API", "ExpenseTracker.API\ExpenseTracker.API.csproj", "{A54E0B9B-F796-4083-AF57-52FC3085DD9F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "frontend", "frontend", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "expense-tracker-ui", "..\..\frontend\expense-tracker-ui\", "{7BDD4AD1-705E-A4B6-2677-F73975A4B8CE}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_49287"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\frontend\expense-tracker-ui\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49287\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_49287"
+		Release.AspNetCompiler.PhysicalPath = "..\..\frontend\expense-tracker-ui\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49287\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "49287"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A54E0B9B-F796-4083-AF57-52FC3085DD9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A54E0B9B-F796-4083-AF57-52FC3085DD9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A54E0B9B-F796-4083-AF57-52FC3085DD9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A54E0B9B-F796-4083-AF57-52FC3085DD9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BDD4AD1-705E-A4B6-2677-F73975A4B8CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BDD4AD1-705E-A4B6-2677-F73975A4B8CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BDD4AD1-705E-A4B6-2677-F73975A4B8CE}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BDD4AD1-705E-A4B6-2677-F73975A4B8CE}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7BDD4AD1-705E-A4B6-2677-F73975A4B8CE} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A7D0A25A-6541-4BA2-886A-546F45D307E5}
+	EndGlobalSection
+EndGlobal
