@@ -1,4 +1,5 @@
-﻿using ExpenseTracker.API.Models.DTOs;
+﻿using ExpenseTracker.API.BLOs.IBlo;
+using ExpenseTracker.API.Models.DTOs;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,9 +10,11 @@ namespace ExpenseTracker.API.Controllers
     public class AuthController : ControllerBase
     {
         private readonly UserManager<IdentityUser> _userManger;
-        public AuthController(UserManager<IdentityUser> userManger)
+        private readonly IAuthBlo _authBlo;
+        public AuthController(UserManager<IdentityUser> userManger, IAuthBlo authBlo)
         {
             _userManger = userManger;
+            _authBlo = authBlo;
         }
 
         // POST: {apibaseurl}/api/auth/register
@@ -62,5 +65,14 @@ namespace ExpenseTracker.API.Controllers
 
             return ValidationProblem(ModelState);
         }
+
+        // POST: {apibaseurl}/api/auth/login
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(LoginRequestDto request)
+        {
+            var result = await _authBlo.LoginAsync(request);
+            return Ok(result);
+        }
+
     }
 }

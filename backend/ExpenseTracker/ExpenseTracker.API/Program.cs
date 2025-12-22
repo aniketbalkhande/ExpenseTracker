@@ -1,4 +1,9 @@
+using ExpenseTracker.API.BLOs.Blo;
+using ExpenseTracker.API.BLOs.IBlo;
+using ExpenseTracker.API.Configurations;
 using ExpenseTracker.API.Data;
+using ExpenseTracker.API.Repositories.IRepository;
+using ExpenseTracker.API.Repositories.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +17,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IAuthBlo, AuthBlo>();
+builder.Services.AddScoped<ITokenBlo, TokenBlo>();
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
 builder.Services.AddDbContext<AuthDbContext>(options =>
 {
@@ -45,10 +54,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        ValidIssuer = builder.Configuration["Jwt:Issuer"],
-        ValidAudience = builder.Configuration["Jwt:Audience"],
-        IssuerSigningKey =
-        new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
+        ValidIssuer = builder.Configuration.GetSection("JwtToken").Get<JwtTokenConfig>()!.Issuer,
+        ValidAudience = builder.Configuration.GetSection("JwtToken").Get<JwtTokenConfig>()!.Audience,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+                builder.Configuration.GetSection("JwtToken").Get<JwtTokenConfig>()!.Key))
     };
 });
 #endregion
