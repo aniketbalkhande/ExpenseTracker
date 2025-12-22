@@ -18,11 +18,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="BLOs\Blo\" />
-    <Folder Include="BLOs\IBlo\" />
     <Folder Include="Models\Entities\" />
-    <Folder Include="Repositories\IRepository\" />
-    <Folder Include="Repositories\Repository\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="I:\01_CodeDay\07_Projects\01_ExpenseTracker\backend\ExpenseTracker\ExpenseTracker.API\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="I:\01_CodeDay\07_Projects\01_ExpenseTracker\backend\ExpenseTracker\ExpenseTracker.API\.editorconfig" />
   </ItemGroup>
 
 </Project>
