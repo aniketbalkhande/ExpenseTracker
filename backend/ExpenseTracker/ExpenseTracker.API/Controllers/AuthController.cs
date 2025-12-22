@@ -22,53 +22,19 @@ namespace ExpenseTracker.API.Controllers
         [Route("register")]
         public async Task<IActionResult> Register([FromBody] RegisterRequestDto request)
         {
-            // create Identity user here
-            var user = new IdentityUser
-            {
-                UserName = request.Email.Trim(),
-                Email = request.Email.Trim()
-            };
+            var result = await _authBlo.RegisterAsync(request);
 
-            // Create user with password
-            var identityResult = await _userManger.CreateAsync(user, request.Password.Trim());
-
-            if (identityResult.Succeeded)
+            if (!result.IsSuccess)
             {
-                // Add role to user (reader)
-                identityResult = await _userManger.AddToRoleAsync(user, "reader");
-
-                if (identityResult.Succeeded)
-                {
-                    return Ok("User registered successfully");
-                }
-                else
-                {
-                    if (identityResult.Errors.Any())
-                    {
-                        foreach (var error in identityResult.Errors)
-                        {
-                            ModelState.AddModelError(error.Code, error.Description);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                if (identityResult.Errors.Any())
-                {
-                    foreach (var error in identityResult.Errors)
-                    {
-                        ModelState.AddModelError(error.Code, error.Description);
-                    }
-                }
+                return BadRequest(result);
             }
 
-            return ValidationProblem(ModelState);
+            return Ok("User registered successfully");
         }
 
         // POST: {apibaseurl}/api/auth/login
         [HttpPost("login")]
-        public async Task<IActionResult> Login(LoginRequestDto request)
+        public async Task<IActionResult> Login([FromBody] LoginRequestDto request)
         {
             var result = await _authBlo.LoginAsync(request);
             return Ok(result);
