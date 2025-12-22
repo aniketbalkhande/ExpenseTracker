@@ -2,6 +2,7 @@ using ExpenseTracker.API.BLOs.Blo;
 using ExpenseTracker.API.BLOs.IBlo;
 using ExpenseTracker.API.Configurations;
 using ExpenseTracker.API.Data;
+using ExpenseTracker.API.Middlewares;
 using ExpenseTracker.API.Repositories.IRepository;
 using ExpenseTracker.API.Repositories.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -65,6 +66,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 var app = builder.Build();
 
 #region Configure the HTTP request pipeline. [Add Middlewares here]
+
+app.UseMiddleware<RequestLoggingMiddleware>();
+app.UseMiddleware<GlobalExceptionMiddleware>();
 
 app.UseSwagger();
 app.UseSwaggerUI();
