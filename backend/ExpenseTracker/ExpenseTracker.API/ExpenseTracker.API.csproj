@@ -18,10 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Entities\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EditorConfigFiles Remove="I:\01_CodeDay\07_Projects\01_ExpenseTracker\backend\ExpenseTracker\ExpenseTracker.API\.editorconfig" />
   </ItemGroup>
 

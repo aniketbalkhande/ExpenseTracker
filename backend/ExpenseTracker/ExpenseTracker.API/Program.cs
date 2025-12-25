@@ -28,6 +28,11 @@ builder.Services.AddDbContext<AuthDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ExpenseTrackerConnectionString"));
 });
 
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ExpenseTrackerConnectionString"));
+});
+
 // IdentityUser: built-in class representing a user in ASP.NET Core Identity
 builder.Services.AddIdentityCore<IdentityUser>()
     .AddRoles<IdentityRole>()
