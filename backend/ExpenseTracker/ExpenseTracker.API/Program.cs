@@ -22,6 +22,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAuthBlo, AuthBlo>();
 builder.Services.AddScoped<ITokenBlo, TokenBlo>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ICategoryBlo, CategoryBlo>();
 
 builder.Services.AddDbContext<AuthDbContext>(options =>
 {

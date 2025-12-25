@@ -20,6 +20,7 @@ namespace ExpenseTracker.API.BLOs.Blo
             // Create Claims 
             var claims = new List<Claim>
             {
+                new Claim(ClaimTypes.NameIdentifier, user.Id),
                 new(ClaimTypes.Email, user.Email!)
             };
 
