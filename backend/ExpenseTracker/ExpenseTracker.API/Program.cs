@@ -22,8 +22,15 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAuthBlo, AuthBlo>();
 builder.Services.AddScoped<ITokenBlo, TokenBlo>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ICategoryBlo, CategoryBlo>();
 
 builder.Services.AddDbContext<AuthDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ExpenseTrackerConnectionString"));
+});
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("ExpenseTrackerConnectionString"));
 });
